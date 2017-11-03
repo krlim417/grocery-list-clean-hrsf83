@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import GroceryList from './components/GroceryList.jsx';
 
 class App extends React.Component {
   constructor(props) {
@@ -19,10 +20,11 @@ class App extends React.Component {
     return (
       <div>
         <form>
-          Description: <input type="text" name="description-input" /><br />
-          Quantity: <input type="text" name="quantity-input" />
-          <input type="submit" value="Add Grocery" />
+          Description: <input type="text" name="description-input"/><br />
+          Quantity: <input type="text" name="quantity-input"/>
+          <input type="submit" value="Add Grocery"/>
         </form>
+        <GroceryList items={this.state.list} />
       </div>
     )
   }
