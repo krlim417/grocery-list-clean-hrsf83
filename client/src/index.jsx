@@ -10,13 +10,21 @@ class App extends React.Component {
         {id: 2, quantity: 10, description: "greek yogurt"},
         {id: 3, quantity: 2, description: "wine"},
         {id: 4, quantity: 1, description: "iced coffee"}
-      ]
+      ],
+      length: length
     }
   }
 
-  
   render () {
-    return null;
+    return (
+      <div>
+        <form>
+          Description: <input type="text" name="description-input" /><br />
+          Quantity: <input type="text" name="quantity-input" />
+          <input type="submit" value="Add Grocery" />
+        </form>
+      </div>
+    )
   }
 }
 
