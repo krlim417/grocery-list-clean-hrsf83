@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import GroceryList from './components/GroceryList.jsx';
+import AddGrocery from './components/AddGrocery.jsx';
 
 class App extends React.Component {
   constructor(props) {
@@ -14,16 +15,23 @@ class App extends React.Component {
       ],
       length: length
     }
+    this.addToStateList = this.addToStateList.bind(this);
+  }
+
+  addToStateList(update) {
+    var id = this.state.list.length + 1;
+    this.state.list.push({id: id, quantity: update.quantity, description: update.description});
+    var newState = this.state.list;
+    this.setState ({
+      list: newState
+    })
   }
 
   render () {
     return (
       <div>
-        <form>
-          Description: <input type="text" name="description-input"/><br />
-          Quantity: <input type="text" name="quantity-input"/>
-          <input type="submit" value="Add Grocery"/>
-        </form>
+        <h1>Grocery List</h1>
+        <AddGrocery func={this.addToStateList} />
         <GroceryList items={this.state.list} />
       </div>
     )
